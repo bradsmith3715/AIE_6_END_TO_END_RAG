@@ -168,7 +168,9 @@ Simply put, this downloads the file as a temp file, we load it in with `TextFile
 
 Why do we want to support streaming? What about streaming is important, or useful?
 
-Streaming allows for the user to benefit. 
+Streaming is generally beneficial only to the user, as it produces output in a more conversational way. 
+It doesn't speed up any computations or token generation, but it makes it appear that something is happening at more frequent intervals 
+as opposed to waiting until the entire response is generated. 
 
 ### On Chat Start:
 
@@ -211,6 +213,11 @@ Now, we'll save that into our user session!
 #### ❓ QUESTION #2: 
 
 Why are we using User Session here? What about Python makes us need to use this? Why not just store everything in a global variable?
+
+It allows multiple users to simultaneously utilize the app, but contains all the information within a conversation, unique to the user.
+Therefore, no users context will be corrupted, or overwritten by another users documents (as would be the case using a global variable). 
+Python is unable to provide seperate user contexts, so this must be done with another option, Chainlit being a good soluation.   
+
 
 ### On Message
 
@@ -336,6 +343,11 @@ Upload a PDF file of the recent DeepSeek-R1 paper and ask the following question
 3. What is this paper about?
 
 Does this application pass your vibe check? Are there any immediate pitfalls you're noticing?
+
+The initial responses for Q1 and Q2 seem reasonable. If this were the extent of the vibe check I would be satisfied. However, the response 
+to Q3 being "I don't know the answer" indicates that the retrieval portion, or embedding portion of the RAG application could be improved. 
+The use of the characterTextSplitter could be limiting the usefullness of the retrieval, and the prompt template including instructions
+to simply state "I don't know" could be improved. 
 
 ## 🚧 CHALLENGE MODE 🚧
 
