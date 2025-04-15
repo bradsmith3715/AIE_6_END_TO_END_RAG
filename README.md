@@ -347,7 +347,7 @@ Does this application pass your vibe check? Are there any immediate pitfalls you
 The initial responses for Q1 and Q2 seem reasonable. If this were the extent of the vibe check I would be satisfied. However, the response 
 to Q3 being "I don't know the answer" indicates that the retrieval portion, or embedding portion of the RAG application could be improved. 
 The use of the characterTextSplitter could be limiting the usefullness of the retrieval, and the prompt template including instructions
-to simply state "I don't know" could be improved. 
+to simply state "I don't know" could be improved by allowing the user to provide additional context so that a prompt can be passed to the LLM. 
 
 ## 🚧 CHALLENGE MODE 🚧
 
